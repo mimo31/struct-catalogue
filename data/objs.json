@@ -1,0 +1,30 @@
+{
+	"objs": [
+		{
+			"name": "the integers",
+			"props": [
+				"count",
+				"!fchar",
+				"!loc",
+				"!ser",
+				"!art",
+				"eucld",
+				"!bool"
+			]
+		},
+		{
+			"name": "the complex numbers",
+			"props": [
+				"algcf",
+				"!count",
+				"!fchar"
+			]
+		},
+		{
+			"name": "the zero ring",
+			"props": [
+				"!nzr"
+			]
+		}
+	]
+}

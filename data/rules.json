@@ -1,0 +1,223 @@
+{
+	"rules": [
+		{
+			"prec": "ff",
+			"cons": "perff"
+		},
+		{
+			"prec": "ff",
+			"cons": "fin"
+		},
+		{
+			"prec": "algcf",
+			"cons": "perff"
+		},
+		{
+			"prec": "perff",
+			"cons": "f"
+		},
+		{
+			"prec": "f",
+			"cons": "simp"
+		},
+		{
+			"prec": "f",
+			"cons": "val"
+		},
+		{
+			"prec": "f",
+			"cons": "eucld"
+		},
+		{
+			"prec": "simp",
+			"cons": "f"
+		},
+		{
+			"prec": "simp",
+			"cons": "ssimp"
+		},
+		{
+			"prec": "fin",
+			"cons": "fchar"
+		},
+		{
+			"prec": "fin",
+			"cons": "count"
+		},
+		{
+			"prec": "fin",
+			"cons": "art"
+		},
+		{
+			"prec": "char2",
+			"cons": "fchar"
+		},
+		{
+			"prec": "eucld",
+			"cons": "pid"
+		},
+		{
+			"prec": "pid",
+			"cons": "pir"
+		},
+		{
+			"prec": "pid",
+			"cons": "bez"
+		},
+		{
+			"prec": "pid",
+			"cons": "ded"
+		},
+		{
+			"prec": "pid",
+			"cons": "ufd"
+		},
+		{
+			"prec": "ufd",
+			"cons": "gcdd"
+		},
+		{
+			"prec": "gcdd",
+			"cons": "icd"
+		},
+		{
+			"prec": "icd",
+			"cons": "intd"
+		},
+		{
+			"prec": "intd",
+			"cons": "nzr"
+		},
+		{
+			"prec": "intd",
+			"cons": "red"
+		},
+		{
+			"prec": "bool",
+			"cons": "red"
+		},
+		{
+			"prec": "dvr",
+			"cons": "eucld"
+		},
+		{
+			"prec": "dvr",
+			"cons": "val"
+		},
+		{
+			"prec": "val",
+			"cons": "bez"
+		},
+		{
+			"prec": "val",
+			"cons": "user"
+		},
+		{
+			"prec": "val",
+			"cons": "loc"
+		},
+		{
+			"prec": "ssimp",
+			"cons": "art"
+		},
+		{
+			"prec": "ssimp",
+			"cons": "ser"
+		},
+		{
+			"prec": "art",
+			"cons": "noe"
+		},
+		{
+			"prec": "user",
+			"cons": "ser"
+		},
+		{
+			"prec": "pir",
+			"cons": "noe"
+		},
+		{
+			"prec": "ded",
+			"cons": "pruef"
+		},
+		{
+			"prec": "ded",
+			"cons": "her"
+		},
+		{
+			"prec": "ded",
+			"cons": "noe"
+		},
+		{
+			"prec": "bez",
+			"cons": "pruef"
+		},
+		{
+			"prec": "bez",
+			"cons": "gcdd"
+		},
+		{
+			"prec": "pruef",
+			"cons": "icd"
+		},
+		{
+			"prec": "pruef",
+			"cons": "sher"
+		},
+		{
+			"prec": "her",
+			"cons": "sher"
+		},
+
+
+		{
+			"prec": "fin",
+			"cons": "!algcf"
+		},
+		{
+			"prec": [ "ded", "ufd" ],
+			"cons": "pid"
+		},
+		{
+			"prec": [ "pir", "intd" ],
+			"cons": "pid"
+		},
+		{
+			"prec": [ "user", "intd" ],
+			"cons": "val"
+		},
+		{
+			"prec": [ "art", "intd" ],
+			"cons": "f"
+		},
+		{
+			"prec": [ "fin", "f" ],
+			"cons": "ff"
+		},
+		{
+			"prec": [ "intd", "her" ],
+			"cons": "ded"
+		},
+		{
+			"prec": [ "intd", "sher" ],
+			"cons": "pruef"
+		},
+		{
+			"prec": [ "red", "art" ],
+			"cons": "ssimp"
+		},
+
+		{
+			"prec": "!nzr",
+			"cons": "fin"
+		},
+		{
+			"prec": "!nzr",
+			"cons": "bool"
+		},
+		{
+			"prec": "!nzr",
+			"cons": "user"
+		}
+	]
+}

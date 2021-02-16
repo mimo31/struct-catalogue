@@ -1,0 +1,132 @@
+{
+	"defs": [
+		{
+				"name": "finite field",
+				"code": "ff"
+		},
+		{
+				"name": "algebraically closed field",
+				"code": "algcf"
+		},
+		{
+				"name": "perfect field",
+				"code": "perff"
+		},
+		{
+				"name": "field",
+				"code": "f"
+		},
+		{
+				"name": "simple",
+				"code": "simp"
+		},
+		{
+				"name": "finite",
+				"code": "fin"
+		},
+		{
+				"name": "characteristic 2",
+				"code": "char2"
+		},
+		{
+				"name": "finite characteristic",
+				"code": "fchar"
+		},
+		{
+				"name": "countable",
+				"code": "count"
+		},
+		{
+				"name": "Euclidean domain",
+				"code": "eucld"
+		},
+		{
+				"name": "principal ideal domain",
+				"code": "pid"
+		},
+		{
+				"name": "unique factorization domain",
+				"code": "ufd"
+		},
+		{
+				"name": "GCD domain",
+				"code": "gcdd"
+		},
+		{
+				"name": "integrally closed domain",
+				"code": "icd"
+		},
+		{
+				"name": "integral domain",
+				"code": "intd"
+		},
+		{
+				"name": "non-zero ring",
+				"code": "nzr"
+		},
+		{
+				"name": "reduced ring",
+				"code": "red"
+		},
+		{
+				"name": "Boolean ring",
+				"code": "bool"
+		},
+		{
+				"name": "discrete valuation ring",
+				"code": "dvr"
+		},
+		{
+				"name": "valuation ring",
+				"code": "val"
+		},
+		{
+				"name": "semisimple",
+				"code": "ssimp"
+		},
+		{
+				"name": "artinian",
+				"code": "art"
+		},
+		{
+				"name": "noetherian",
+				"code": "noe"
+		},
+		{
+				"name": "uniserial",
+				"code": "user"
+		},
+		{
+				"name": "serial",
+				"code": "ser"
+		},
+		{
+				"name": "local",
+				"code": "loc"
+		},
+		{
+				"name": "principal ideal ring",
+				"code": "pir"
+		},
+		{
+				"name": "Dedekind domain",
+				"code": "ded"
+		},
+		{
+				"name": "Bézout domain",
+				"code": "bez"
+		},
+		{
+				"name": "Prüfer domain",
+				"code": "pruef"
+		},
+		{
+				"name": "hereditary",
+				"code": "her"
+		},
+		{
+				"name": "semihereditary",
+				"code": "sher"
+		}
+	]
+}
