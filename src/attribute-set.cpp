@@ -46,7 +46,7 @@ void AttributeSet::infer_completely(const InferenceRuleList& rules)
 						contradicted = true;
 						return;
 					}
-					else
+					else if (attributes[attr.attr.id] == AttributeTruthValue::UNKNOWN)
 					{
 						attributes[attr.attr.id] = attr.negated ? AttributeTruthValue::TRUE : AttributeTruthValue::FALSE;
 						changed = true;
@@ -60,7 +60,7 @@ void AttributeSet::infer_completely(const InferenceRuleList& rules)
 bool AttributeSet::disect(AttributeSet& s0, AttributeSet& s1)
 {
 	uint32_t unknind = 0;
-	while (unknind < attr_count && attributes[unknind] == AttributeTruthValue::UNKNOWN)
+	while (unknind < attr_count && attributes[unknind] != AttributeTruthValue::UNKNOWN)
 		unknind++;
 	if (unknind == attr_count)
 		return false;

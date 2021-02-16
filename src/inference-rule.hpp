@@ -4,6 +4,9 @@
  * Author: Viktor Fukala
  * Created on 2021/2/16
  */
+#ifndef INFERENCE_RULE_HPP
+#define INFERENCE_RULE_HPP
+
 #include <vector>
 
 #include "attribute.hpp"
@@ -23,6 +26,7 @@ struct AugmentedAttribute
 
 	AugmentedAttribute(const Attribute attr, const bool negated);
 	bool satisfies(const AttributeTruthValue val) const;
+	AugmentedAttribute get_negation() const;
 };
 typedef std::vector<AugmentedAttribute> AugmentedAttributeList;
 
@@ -30,10 +34,10 @@ class InferenceRule
 {
 public:
 	AugmentedAttributeList and_of_attributes;
-
-private:
 	InferenceRule(const AugmentedAttributeList& and_of_attributes);
 };
 typedef std::vector<InferenceRule> InferenceRuleList;
 
 }
+
+#endif // INFERENCE_RULE_HPP

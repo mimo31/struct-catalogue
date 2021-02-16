@@ -4,6 +4,9 @@
  * Author: Viktor Fukala
  * Created on 2021/2/16
  */
+#ifndef INFERENCE_RULE_MANAGER_HPP
+#define INFERENCE_RULE_MANAGER_HPP
+
 #include "attribute-set.hpp"
 #include "inference-rule.hpp"
 
@@ -12,9 +15,13 @@ namespace strcata
 
 class InferenceRuleManager
 {
+private:
 	AttributeManagerPtr attribute_manager;
 	InferenceRuleList rules;
 
+	AugmentedAttribute str_to_aug_attr(const str& s);
+
+public:
 	InferenceRuleManager(const AttributeManagerPtr attribute_manager, const str& rules_filepath);
 
 	uint32_t count_classes() const;
@@ -24,3 +31,5 @@ class InferenceRuleManager
 typedef std::shared_ptr<InferenceRuleManager> InferenceRuleManagerPtr;
 
 }
+
+#endif // INFERENCE_RULE_MANAGER_HPP

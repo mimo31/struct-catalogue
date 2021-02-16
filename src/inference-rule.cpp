@@ -19,7 +19,12 @@ bool AugmentedAttribute::satisfies(const AttributeTruthValue val) const
 	return (!negated && val == AttributeTruthValue::TRUE) || (negated && val == AttributeTruthValue::FALSE);
 }
 
-InferenceRule::InferenceRule(const AugmentedAttributeList& andOfAttributes)
+AugmentedAttribute AugmentedAttribute::get_negation() const
+{
+	return AugmentedAttribute(attr, !negated);
+}
+
+InferenceRule::InferenceRule(const AugmentedAttributeList& and_of_attributes)
 	: and_of_attributes(and_of_attributes)
 {
 }

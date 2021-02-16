@@ -4,6 +4,9 @@
  * Author: Viktor Fukala
  * Created on 2021/2/16
  */
+#ifndef ATTRIBUTE_SET_HPP
+#define ATTRIBUTE_SET_HPP
+
 #include "attribute.hpp"
 #include "inference-rule.hpp"
 
@@ -16,7 +19,7 @@ class AttributeSet
 	std::vector<AttributeTruthValue> attributes;
 
 public:
-	bool contradicted;
+	bool contradicted = false;
 
 	AttributeSet() = default;
 	AttributeSet(const uint32_t attr_count);
@@ -26,3 +29,5 @@ public:
 };
 
 };
+
+#endif // ATTRIBUTE_SET_HPP
