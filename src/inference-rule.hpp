@@ -14,22 +14,6 @@
 namespace strcata
 {
 
-enum AttributeTruthValue
-{
-	TRUE, FALSE, UNKNOWN
-};
-
-struct AugmentedAttribute
-{
-	Attribute attr;
-	bool negated;
-
-	AugmentedAttribute(const Attribute attr, const bool negated);
-	bool satisfies(const AttributeTruthValue val) const;
-	AugmentedAttribute get_negation() const;
-};
-typedef std::vector<AugmentedAttribute> AugmentedAttributeList;
-
 class InferenceRule
 {
 public:

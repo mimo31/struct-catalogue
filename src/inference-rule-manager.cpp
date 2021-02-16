@@ -14,15 +14,6 @@
 namespace strcata
 {
 
-AugmentedAttribute InferenceRuleManager::str_to_aug_attr(const str& s)
-{
-	const bool negated = s.length() > 0 && s[0] == '!';
-	const str code = negated ? s.substr(1) : s;
-	Attribute attr;
-	attribute_manager->get_attr_by_code(code, attr);
-	return AugmentedAttribute(attr, negated);
-}
-
 InferenceRuleManager::InferenceRuleManager(const AttributeManagerPtr attribute_manager, const str& rules_filepath)
 	: attribute_manager(attribute_manager)
 {
@@ -38,13 +29,21 @@ InferenceRuleManager::InferenceRuleManager(const AttributeManagerPtr attribute_m
 		if (precs.is_array())
 		{
 			for (const nlohmann::json prec : precs)
-				lst.push_back(str_to_aug_attr(prec.get<str>()));
+			{
+				AugmentedAttribute attr;
+				attribute_manager->get_aug_attr_by_str(prec.get<str>(), attr);
+				lst.push_back(attr);
+			}
 		}
 		else
 		{
-			lst.push_back(str_to_aug_attr(precs.get<str>()));
+			AugmentedAttribute attr;
+			attribute_manager->get_aug_attr_by_str(precs.get<str>(), attr);
+			lst.push_back(attr);
 		}
-		lst.push_back(str_to_aug_attr(rule["cons"].get<str>()).get_negation());
+		AugmentedAttribute attr;
+		attribute_manager->get_aug_attr_by_str(rule["cons"].get<str>(), attr);
+		lst.push_back(attr.get_negation());
 		rules.push_back(InferenceRule(lst));
 	}
 }

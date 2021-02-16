@@ -15,6 +15,13 @@ AttributeSet::AttributeSet(const uint32_t attr_count)
 	fill(attributes.begin(), attributes.end(), AttributeTruthValue::UNKNOWN);
 }
 
+AttributeSet::AttributeSet(const uint32_t attr_count, const AugmentedAttributeList& set_attributes)
+	: AttributeSet(attr_count)
+{
+	for (const AugmentedAttribute aug_attr : set_attributes)
+		attributes[aug_attr.attr.id] = aug_attr.negated ? AttributeTruthValue::FALSE : AttributeTruthValue::TRUE;
+}
+
 void AttributeSet::infer_completely(const InferenceRuleList& rules)
 {
 	bool changed;

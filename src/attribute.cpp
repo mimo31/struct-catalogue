@@ -20,6 +20,21 @@ AttributeInfo::AttributeInfo(const str& name, const str& code)
 {
 }
 
+AugmentedAttribute::AugmentedAttribute(const Attribute attr, const bool negated)
+	: attr(attr), negated(negated)
+{
+}
+
+bool AugmentedAttribute::satisfies(const AttributeTruthValue val) const
+{
+	return (!negated && val == AttributeTruthValue::TRUE) || (negated && val == AttributeTruthValue::FALSE);
+}
+
+AugmentedAttribute AugmentedAttribute::get_negation() const
+{
+	return AugmentedAttribute(attr, !negated);
+}
+
 AttributeManager::AttributeManager(const str& defs_filepath)
 {
 	std::ifstream ifs(defs_filepath);
@@ -49,6 +64,18 @@ bool AttributeManager::get_attr_by_code(const str& code, Attribute& attr) const
 		}
 	}
 	return false;
+}
+
+bool AttributeManager::get_aug_attr_by_str(const str& s, AugmentedAttribute& attr) const
+{
+	const bool negated = s.length() > 0 && s[0] == '!';
+	const str code = negated ? s.substr(1) : s;
+	Attribute at;
+	if (!get_attr_by_code(code, at))
+		return false;
+	attr.attr = at;
+	attr.negated = negated;
+	return true;
 }
 
 str AttributeManager::get_attr_code(const Attribute attr) const

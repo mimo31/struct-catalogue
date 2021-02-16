@@ -19,8 +19,6 @@ private:
 	AttributeManagerPtr attribute_manager;
 	InferenceRuleList rules;
 
-	AugmentedAttribute str_to_aug_attr(const str& s);
-
 public:
 	InferenceRuleManager(const AttributeManagerPtr attribute_manager, const str& rules_filepath);
 

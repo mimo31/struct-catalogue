@@ -34,6 +34,22 @@ public:
 	Attribute(const uint32_t id);
 };
 
+enum AttributeTruthValue
+{
+	TRUE, FALSE, UNKNOWN
+};
+
+struct AugmentedAttribute
+{
+	Attribute attr;
+	bool negated;
+
+	AugmentedAttribute() = default;
+	AugmentedAttribute(const Attribute attr, const bool negated);
+	bool satisfies(const AttributeTruthValue val) const;
+	AugmentedAttribute get_negation() const;
+};
+typedef std::vector<AugmentedAttribute> AugmentedAttributeList;
 
 class AttributeManager
 {
@@ -44,6 +60,7 @@ public:
 	uint32_t get_attribute_count() const;
 
 	bool get_attr_by_code(const str& code, Attribute& attr) const;
+	bool get_aug_attr_by_str(const str& s, AugmentedAttribute& attr) const;
 	str get_attr_code(const Attribute attr) const;
 	str get_attr_name(const Attribute attr) const;
 };

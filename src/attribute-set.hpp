@@ -16,13 +16,14 @@ namespace strcata
 class AttributeSet
 {
 	uint32_t attr_count;
-	std::vector<AttributeTruthValue> attributes;
 
 public:
+	std::vector<AttributeTruthValue> attributes;
 	bool contradicted = false;
 
 	AttributeSet() = default;
 	AttributeSet(const uint32_t attr_count);
+	AttributeSet(const uint32_t attr_count, const AugmentedAttributeList& set_attributes);
 
 	void infer_completely(const InferenceRuleList& rules);
 	bool disect(AttributeSet& s0, AttributeSet& s1);

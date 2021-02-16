@@ -8,6 +8,7 @@ add_executable(${PROJECT_NAME}
 	inference-rule.cpp
 	inference-rule-manager.cpp
 	main.cpp
+	program.cpp
 )
 
 target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra)
