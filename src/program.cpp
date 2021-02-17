@@ -54,7 +54,7 @@ void Program::run()
 	n = attr_manager->get_attribute_count();
 
 	AugmentedAttributeList attr_list;
-	attr_manager->get_aug_attr_list_by_str("eucld val", attr_list);
+	attr_manager->get_aug_attr_list_by_str("bool", attr_list);
 	AttributeSet attrset(n, attr_list);
 	std::cout << "initial" << std::endl;
 	print_attribute_set(attrset, false);
@@ -68,6 +68,8 @@ void Program::run()
 		print_attribute_set(inferred, true);
 	std::cout << std::endl;
 
+	std::cout << rule_manager->count_classes(attrset) << std::endl;
+	rule_manager->print_classes(attrset);
 	std::cout << rule_manager->count_classes() << std::endl;
 }
 

@@ -23,7 +23,9 @@ public:
 	InferenceRuleManager(const AttributeManagerPtr attribute_manager, const str& rules_filepath);
 
 	uint32_t count_classes() const;
+	void print_classes() const;
 	uint32_t count_classes(AttributeSet attrset) const;
+	void print_classes(AttributeSet attrset) const;
 	AttributeSet infer_completely(const AttributeSet& attrset) const;
 };
 typedef std::shared_ptr<InferenceRuleManager> InferenceRuleManagerPtr;

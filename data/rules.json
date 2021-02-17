@@ -249,6 +249,10 @@
 			"prec": [ "bez", "ufd" ],
 			"cons": "pid"
 		},
+		{
+			"prec": [ "f", "!fchar" ],
+			"cons": "perff"
+		},
 
 		{
 			"prec": "!nzr",

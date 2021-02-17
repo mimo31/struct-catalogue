@@ -53,6 +53,11 @@ uint32_t InferenceRuleManager::count_classes() const
 	return count_classes(AttributeSet(attribute_manager->get_attribute_count()));
 }
 
+void InferenceRuleManager::print_classes() const
+{
+	return print_classes(AttributeSet(attribute_manager->get_attribute_count()));
+}
+
 uint32_t InferenceRuleManager::count_classes(AttributeSet attrset) const
 {
 	attrset.infer_completely(rules);
@@ -64,6 +69,29 @@ uint32_t InferenceRuleManager::count_classes(AttributeSet attrset) const
 	const uint32_t cou0 = count_classes(s0), cou1 = count_classes(s1);
 	return cou0 + cou1;
 }
+
+void InferenceRuleManager::print_classes(AttributeSet attrset) const
+{
+	attrset.infer_completely(rules);
+	if (attrset.contradicted)
+		return;
+	AttributeSet s0, s1;
+	if (!attrset.disect(s0, s1))
+	{
+		for (uint32_t i = 0; i < attrset.attributes.size(); i++)
+		{
+			const bool negated = attrset.attributes[i] == AttributeTruthValue::FALSE;
+			std::cout << " " << (negated ? "!" : "") << attribute_manager->get_attr_code(i);
+		}
+		std::cout << std::endl;
+	}
+	else
+	{
+		print_classes(s0);
+		print_classes(s1);
+	}
+}
+
 AttributeSet InferenceRuleManager::infer_completely(const AttributeSet& attrset) const
 {
 	AttributeSet s2 = attrset;
