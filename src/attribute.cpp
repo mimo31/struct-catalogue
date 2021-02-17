@@ -78,6 +78,29 @@ bool AttributeManager::get_aug_attr_by_str(const str& s, AugmentedAttribute& att
 	return true;
 }
 
+bool AttributeManager::get_aug_attr_list_by_str(const str& s, AugmentedAttributeList& lst) const
+{
+	AugmentedAttributeList list;
+	uint32_t from = 0;
+	for (uint32_t i = 0; i <= s.length(); i++)
+	{
+		if (i == s.length() || s[i] == ' ')
+		{
+			if (from < i)
+			{
+				const str subs = s.substr(from, i - from);
+				AugmentedAttribute attr;
+				if (!get_aug_attr_by_str(subs, attr))
+					return false;
+				list.push_back(attr);
+			}
+			from = i + 1;
+		}
+	}
+	lst = list;
+	return true;
+}
+
 str AttributeManager::get_attr_code(const Attribute attr) const
 {
 	return attributes[attr.id].code;

@@ -53,18 +53,21 @@ void Program::run()
 	rule_manager = std::make_shared<InferenceRuleManager>(attr_manager, "../../data/rules.json");
 	n = attr_manager->get_attribute_count();
 
-	AugmentedAttribute aug_attr;
-	attr_manager->get_aug_attr_by_str("!nzr", aug_attr);
-	AttributeSet attrset(n, AugmentedAttributeList{ aug_attr });
+	AugmentedAttributeList attr_list;
+	attr_manager->get_aug_attr_list_by_str("eucld val", attr_list);
+	AttributeSet attrset(n, attr_list);
 	std::cout << "initial" << std::endl;
 	print_attribute_set(attrset, false);
 	std::cout << std::endl;
 
 	const AttributeSet inferred = rule_manager->infer_completely(attrset);
 	std::cout << "inferred" << std::endl;
-	print_attribute_set(inferred, true);
+	if (inferred.contradicted)
+		std::cout << "CONTRADICTION" << std::endl;
+	else
+		print_attribute_set(inferred, true);
 	std::cout << std::endl;
-	
+
 	std::cout << rule_manager->count_classes() << std::endl;
 }
 

@@ -127,6 +127,10 @@
 		{
 				"name": "semihereditary",
 				"code": "sher"
+		},
+		{
+				"name": "two-element",
+				"code": "two"
 		}
 	]
 }

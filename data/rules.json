@@ -53,6 +53,10 @@
 			"cons": "fchar"
 		},
 		{
+			"prec": "char2",
+			"cons": "nzr"
+		},
+		{
 			"prec": "eucld",
 			"cons": "pid"
 		},
@@ -133,6 +137,10 @@
 			"cons": "ser"
 		},
 		{
+			"prec": "loc",
+			"cons": "nzr"
+		},
+		{
 			"prec": "pir",
 			"cons": "noe"
 		},
@@ -168,10 +176,26 @@
 			"prec": "her",
 			"cons": "sher"
 		},
+		{
+			"prec": "two",
+			"cons": "ff"
+		},
+		{
+			"prec": "two",
+			"cons": "bool"
+		},
+		{
+			"prec": "two",
+			"cons": "char2"
+		},
 
 		{
 			"prec": "fin",
 			"cons": "!algcf"
+		},
+		{
+			"prec": "dvr",
+			"cons": "!f"
 		},
 		{
 			"prec": [ "ded", "ufd" ],
@@ -205,6 +229,26 @@
 			"prec": [ "red", "art" ],
 			"cons": "ssimp"
 		},
+		{
+			"prec": [ "bool", "!two" ],
+			"cons": "!intd"
+		},
+		{
+			"prec": [ "bool", "nzr" ],
+			"cons": "char2"
+		},
+		{
+			"prec": [ "gcd", "noe" ],
+			"cons": "ufd"
+		},
+		{
+			"prec": [ "pruef", "gcdd" ],
+			"cons": "bez"
+		},
+		{
+			"prec": [ "bez", "ufd" ],
+			"cons": "pid"
+		},
 
 		{
 			"prec": "!nzr",
@@ -217,6 +261,14 @@
 		{
 			"prec": "!nzr",
 			"cons": "user"
+		},
+		{
+			"prec": "!nzr",
+			"cons": "pir"
+		},
+		{
+			"prec": "!nzr",
+			"cons": "her"
 		}
 	]
 }

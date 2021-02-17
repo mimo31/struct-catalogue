@@ -61,6 +61,7 @@ public:
 
 	bool get_attr_by_code(const str& code, Attribute& attr) const;
 	bool get_aug_attr_by_str(const str& s, AugmentedAttribute& attr) const;
+	bool get_aug_attr_list_by_str(const str& s, AugmentedAttributeList& lst) const;
 	str get_attr_code(const Attribute attr) const;
 	str get_attr_name(const Attribute attr) const;
 };
