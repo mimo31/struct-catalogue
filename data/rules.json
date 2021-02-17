@@ -238,7 +238,7 @@
 			"cons": "char2"
 		},
 		{
-			"prec": [ "gcd", "noe" ],
+			"prec": [ "gcdd", "noe" ],
 			"cons": "ufd"
 		},
 		{
@@ -252,6 +252,34 @@
 		{
 			"prec": [ "f", "!fchar" ],
 			"cons": "perff"
+		},
+		{
+			"prec": [ "bool", "noe" ],
+			"cons": "fin"
+		},
+		{
+			"prec": [ "bool", "noe" ],
+			"cons": "fin"
+		},
+		{
+			"prec": [ "bool", "!two" ],
+			"cons": "!loc"
+		},
+		{
+			"prec": [ "bool", "fin" ],
+			"cons": "pir"
+		},
+		{
+			"prec": [ "bool", "ser" ],
+			"cons": "fin"
+		},
+		{
+			"prec": [ "user", "nzr" ],
+			"cons": "loc"
+		},
+		{
+			"prec": [ "red", "!intd" ],
+			"cons": "!user"
 		},
 
 		{

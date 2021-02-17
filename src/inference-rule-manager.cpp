@@ -92,10 +92,13 @@ void InferenceRuleManager::print_classes(AttributeSet attrset) const
 	}
 }
 
-AttributeSet InferenceRuleManager::infer_completely(const AttributeSet& attrset) const
+AttributeSet InferenceRuleManager::infer_completely(const AttributeSet& attrset, const bool print_steps) const
 {
 	AttributeSet s2 = attrset;
-	s2.infer_completely(rules);
+	if (print_steps)
+		s2.infer_completely(rules, attribute_manager);
+	else
+		s2.infer_completely(rules);
 	return s2;
 }
 

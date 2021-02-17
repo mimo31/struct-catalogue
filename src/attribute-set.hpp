@@ -26,6 +26,7 @@ public:
 	AttributeSet(const uint32_t attr_count, const AugmentedAttributeList& set_attributes);
 
 	void infer_completely(const InferenceRuleList& rules);
+	void infer_completely(const InferenceRuleList& rules, const AttributeManagerPtr attr_manager);
 	bool disect(AttributeSet& s0, AttributeSet& s1);
 };
 

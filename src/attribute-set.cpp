@@ -6,6 +6,8 @@
  */
 #include "attribute-set.hpp"
 
+#include <iostream>
+
 namespace strcata
 {
 
@@ -23,6 +25,11 @@ AttributeSet::AttributeSet(const uint32_t attr_count, const AugmentedAttributeLi
 }
 
 void AttributeSet::infer_completely(const InferenceRuleList& rules)
+{
+	infer_completely(rules, nullptr);
+}
+
+void AttributeSet::infer_completely(const InferenceRuleList& rules, const AttributeManagerPtr attr_manager)
 {
 	bool changed;
 	do
@@ -55,6 +62,18 @@ void AttributeSet::infer_completely(const InferenceRuleList& rules)
 					}
 					else if (attributes[attr.attr.id] == AttributeTruthValue::UNKNOWN)
 					{
+						if (attr_manager)
+						{
+							for (uint32_t j = 0; j < rule.and_of_attributes.size(); j++)
+							{
+								if (i != j)
+								{
+									const AugmentedAttribute attr = rule.and_of_attributes[j];
+									std::cout << (attr.negated ? "!" : "") << attr_manager->get_attr_code(attr.attr.id) << " ";
+								}
+							}
+							std::cout << "=> " << (attr.negated ? "" : "!") << attr_manager->get_attr_code(attr.attr.id) << std::endl;
+						}
 						attributes[attr.attr.id] = attr.negated ? AttributeTruthValue::TRUE : AttributeTruthValue::FALSE;
 						changed = true;
 					}

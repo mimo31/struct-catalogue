@@ -54,13 +54,13 @@ void Program::run()
 	n = attr_manager->get_attribute_count();
 
 	AugmentedAttributeList attr_list;
-	attr_manager->get_aug_attr_list_by_str("bool", attr_list);
+	attr_manager->get_aug_attr_list_by_str("fin", attr_list);
 	AttributeSet attrset(n, attr_list);
 	std::cout << "initial" << std::endl;
 	print_attribute_set(attrset, false);
 	std::cout << std::endl;
 
-	const AttributeSet inferred = rule_manager->infer_completely(attrset);
+	const AttributeSet inferred = rule_manager->infer_completely(attrset, true);
 	std::cout << "inferred" << std::endl;
 	if (inferred.contradicted)
 		std::cout << "CONTRADICTION" << std::endl;
